@@ -1,0 +1,22 @@
+export const SliderData = [
+  {
+    image:
+      'https://www.bridgemi.com/sites/default/files/styles/full_width_image/public/hero_images/grades.jpg?itok=GLE2pgix'
+  },
+  {
+    image:
+      'https://www.edecofy.com/blog/wp-content/uploads/2021/05/COVID-19-Crisis-Online-Assessment-for-Safeguarding-Academic-Integrity.jpg'
+  },
+  {
+    image:
+      'https://ferret-one.akamaized.net/images/607d0b9d4b6428004ab8636d/large.jpeg?utime=1618807709'
+  },
+  {
+    image:
+      'https://www.shutterstock.com/image-vector/evaluation-chart-keywords-icons-600w-438362344.jpg'
+  },
+  {
+    image:
+      'https://www.shutterstock.com/image-vector/banner-evaluation-concept-assessment-analysis-600w-1339409468.jpg'
+  }
+];
