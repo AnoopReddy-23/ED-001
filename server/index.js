@@ -20,10 +20,12 @@ mongoose.connection.on('error',(error)=>{
 })
 
 require('./models/user_model')
+require('./models/student_model')
 
 app.use(exp.json())
 app.use(exp.urlencoded({extended: true}));
 app.use(require('./routes/authentication'))
+app.use(require('./routes/studentRoute'))
 
 
 //dealing with page refersh
