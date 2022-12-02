@@ -14,10 +14,10 @@ export default function Navbar() {
             href="#pablo"
             onClick={(e) => e.preventDefault()}
           >
-           Welcome To Admin Section
+            Welcome
           </a>
           {/* Form */}
-        
+
           {/* User */}
           <ul className="flex-col md:flex-row list-none items-center hidden md:flex">
             <UserDropdown />

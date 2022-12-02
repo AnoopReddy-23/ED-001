@@ -30,7 +30,7 @@ export default function CardTableTA({ color }) {
                   "font-semibold text-primary"
                 }
               >
-                Teacher Assistant's
+                Student Leaderboard
               </h4>
             </div>
           </div>
@@ -58,7 +58,7 @@ export default function CardTableTA({ color }) {
                       : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
                   }
                 >
-                  ID
+                  Student ID
                 </th>
                 <th
                   className={
@@ -68,7 +68,7 @@ export default function CardTableTA({ color }) {
                       : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
                   }
                 >
-                  Status
+                  Submission Status
                 </th>
                 <th
                   className={
@@ -78,7 +78,7 @@ export default function CardTableTA({ color }) {
                       : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
                   }
                 >
-                  INSTITUTION
+                  Submission Time
                 </th>
                 <th
                   className={
@@ -88,7 +88,7 @@ export default function CardTableTA({ color }) {
                       : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
                   }
                 >
-                  Number of teachers associated
+                Score
                 </th>
                 <th
                   className={
