@@ -21,12 +21,12 @@ export default function TASidebar() {
           >
             <i className="fas fa-bars"></i>
           </button>
-          {/* Brand */}
+
           <Link
             className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
             to="/"
           >
-            TA Dashboard
+            Student Dashboard
           </Link>
           {/* User */}
           <ul className="md:hidden items-center flex flex-wrap list-none">
@@ -52,7 +52,7 @@ export default function TASidebar() {
                     className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
                     to="/"
                   >
-                    Notus React
+                    
                   </Link>
                 </div>
                 <div className="w-6/12 flex justify-end">
@@ -81,7 +81,7 @@ export default function TASidebar() {
             <hr className="my-4 md:min-w-full" />
             {/* Heading */}
             <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Teacher Assistant
+              Student
             </h6>
             {/* Navigation */}
 
@@ -126,7 +126,7 @@ export default function TASidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Add PID
+                  Add Submission
                 </Link>
               </li>
 
@@ -148,7 +148,7 @@ export default function TASidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Teacher list
+                  Student Leaderboard
                 </Link>
               </li>
 

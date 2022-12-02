@@ -30,7 +30,7 @@ export default function TACardTable({ color }) {
                   "font-semibold text-primary display-1 "
                 }
               >
-                Teachers
+                Students 
               </h3>
             </div>
           </div>
@@ -88,7 +88,7 @@ export default function TACardTable({ color }) {
                       : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
                   }
                 >
-                  Number of teachers associated
+                  Numbers
                 </th>
                 <th
                   className={
