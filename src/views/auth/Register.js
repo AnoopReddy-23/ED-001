@@ -1,6 +1,34 @@
 import React from "react";
+import {useForm} from 'react-hook-form'
+import {Form, Button,Card} from 'react-bootstrap'
+import axios from 'axios'
+//import {useNavigate} from 'react-router-dom'
+
 
 export default function Register() {
+
+  const {register,handleSubmit,formState:{errors}}=useForm();
+  //const navigate=useNavigate()
+
+  //submit form
+  const onFormSubmit=(userObj)=>{
+    console.log(userObj)
+    //HTTP POST request
+    axios.post('/register', userObj)
+    .then(res=>{
+      //console.log(response)
+      alert(res.data.result)
+        if(res.data.result==="User Registered successfully"){
+          //navigate('/login')
+          console.log("Success")
+        }
+    })
+    .catch(error=>{
+      console.log(error)
+      alert("Something went wrong!! Please try again after sometime..")
+    })
+  }
+
   return (
     <>
       <div className="container mx-auto px-4 h-full">
@@ -43,49 +71,44 @@ export default function Register() {
                 <div className="text-blueGray-400 text-center mb-3 font-bold">
                   <small>Or sign up with credentials</small>
                 </div>
-                <form>
-                  <div className="relative w-full mb-3">
-                    <label
-                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                      htmlFor="grid-password"
-                    >
-                      Name
-                    </label>
-                    <input
-                      type="email"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                      placeholder="Name"
-                    />
-                  </div>
-
-                  <div className="relative w-full mb-3">
-                    <label
-                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                      htmlFor="grid-password"
-                    >
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                      placeholder="Email"
-                    />
-                  </div>
-
-                  <div className="relative w-full mb-3">
-                    <label
-                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                      htmlFor="grid-password"
-                    >
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                      placeholder="Password"
-                    />
-                  </div>
-
+                <Form onSubmit={handleSubmit(onFormSubmit)} className='p-5'>
+                  {/* username */}
+                  <Form.Group className="mb-3">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control type="text" placeholder="Enter username" {...register('username',{required:true})} />
+                    {/* validation error message for username */}
+                    {errors.username && <p className='text-danger'>*Username is required</p>}
+                  </Form.Group>
+                  {/* password */}
+                  <Form.Group className="mb-3">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" {...register('password',{required:true})}/>
+                    {/* validation error message for password */}
+                    {errors.password && <p className='text-danger'>*password is required</p>}
+                  </Form.Group>
+                  {/* email */}
+                  <Form.Group className="mb-3">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" placeholder="Enter email" {...register('email',{required:true})} />
+                    {/* validation error message for city */}
+                    {errors.email && <p className='text-danger'>*Email is required</p>}
+                  </Form.Group>
+                  {/* usertype */}
+                  <Form.Group className="mb-3">
+                    {/* Student */}
+                    <Form.Label>Select type of User</Form.Label> <br />
+                      <Form.Check inline type="radio" id="student">
+                        <Form.Check.Input type="radio" value="student" {...register("userType", { required: true })} />
+                      <Form.Check.Label>Student</Form.Check.Label>
+                    </Form.Check>
+                    {/* Teacher */}
+                    <Form.Check inline type="radio" id="teacher">
+                      <Form.Check.Input type="radio" value="teacher" {...register("userType", { required: true })}/>
+                      <Form.Check.Label>Teacher</Form.Check.Label>
+                    </Form.Check>
+                    {/* validation error message for userType */}
+                    {errors.userType && <p className='text-danger'>*UserType is required</p>}
+                  </Form.Group>
                   <div>
                     <label className="inline-flex items-center cursor-pointer">
                       <input
@@ -106,15 +129,13 @@ export default function Register() {
                     </label>
                   </div>
 
-                  <div className="text-center mt-6">
-                    <button
-                      className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                      type="button"
-                    >
-                      Create Account
-                    </button>
-                  </div>
-                </form>
+                  {/* Button */}
+                  <Button 
+                    className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                    type="submit">
+                    Create Account
+                  </Button>
+                </Form>
               </div>
             </div>
           </div>
