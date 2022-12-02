@@ -1,7 +1,38 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {useForm} from 'react-hook-form'
+import {Form, Button} from 'react-bootstrap'
+import {useHistory} from 'react-router-dom'
+import axios from 'axios'
 
 export default function Login() {
+
+  const {register, handleSubmit,formState:{errors}}=useForm();
+  const navigate=useHistory()
+
+  //submit the form
+  const onFormSubmit=(userCredObj)=>{
+    console.log(userCredObj)
+    axios.post('/login',userCredObj)
+    .then(res=>{
+      //console.log(res.data)
+      alert(res.data.result)
+      if(res.data.result==="Login successful"){
+        if(res.data.userInfo.userType==="student"){
+          navigate.push('/admin/TAdashboard')
+        }
+        if(res.data.userInfo.userType==="teacher"){
+          navigate.push('/admin/Tdashboard')
+        }
+        if(res.data.userInfo.userType==="admin"){
+          navigate.push('admin/Adashboard')
+        }
+        //console.log("Success",res.data.userInfo)
+      }
+    })
+    .catch(error=>console.log(error))  
+  }
+
   return (
     <>
       <div className="container mx-auto px-4 h-full">
@@ -44,34 +75,23 @@ export default function Login() {
                 <div className="text-blueGray-400 text-center mb-3 font-bold">
                   <small>Or sign in with credentials</small>
                 </div>
-                <form>
-                  <div className="relative w-full mb-3">
-                    <label
-                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                      htmlFor="grid-password"
-                    >
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                      placeholder="Email"
-                    />
-                  </div>
+                <Form onSubmit={handleSubmit(onFormSubmit)} className='p-5' >
+                  {/* username */}
+                  <Form.Group className="mb-3">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control type="text" autoComplete="Username" placeholder="Enter Username" {...register("username",{required:true})} />
+                    {/* validation error message for username */}
+                    {errors.username && <p className='text-danger'>*Username is required</p>}
+                  </Form.Group>
 
-                  <div className="relative w-full mb-3">
-                    <label
-                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                      htmlFor="grid-password"
-                    >
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                      placeholder="Password"
-                    />
-                  </div>
+                  {/* password */}
+                  <Form.Group className="mb-3" >
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password"  autoComplete="current-password" placeholder="Enter Password" {...register("password",{required:true})} />
+                    {/* validation error message for password */}
+                    {errors.password && <p className='text-danger'>*Password is required</p>}
+                  </Form.Group>
+
                   <div>
                     <label className="inline-flex items-center cursor-pointer">
                       <input
@@ -84,16 +104,14 @@ export default function Login() {
                       </span>
                     </label>
                   </div>
-
-                  <div className="text-center mt-6">
-                    <button
+                  
+                  {/* submit button */}
+                    <Button variant="primary"
                       className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                      type="button"
-                    >
-                      Sign In
-                    </button>
-                  </div>
-                </form>
+                      type="submit">
+                      Login
+                    </Button>
+                </Form>
               </div>
             </div>
             <div className="flex flex-wrap mt-6 relative">

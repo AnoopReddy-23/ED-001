@@ -40,7 +40,7 @@ export default function Navbar(props) {
             </ul>
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="flex items-center">
-                <IndexDropdown />
+                {/* <IndexDropdown /> */}
               </li>
               
 
@@ -49,7 +49,12 @@ export default function Navbar(props) {
                   className="bg-lightBlue-500 text-white active:bg-lightBlue-600 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none m-3 ease-linear transition-all duration-150"
                   type="button"
                 >
-                  <i className="fas"></i> Login
+                   <Link
+                      to="/auth/login"
+                      className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+                    >
+                      Login
+                    </Link>
                 </button>
               </li>
             </ul>
