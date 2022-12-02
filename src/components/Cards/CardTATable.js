@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
+import axios from 'axios'
 // components
 
 import TableDropdown from "components/Dropdowns/TableDropdown.js";
@@ -9,10 +10,12 @@ export default function CardTableTA({ color }) {
   let [users, setUsers] = useState([])
     const [error, seterror] = useState('')
     useEffect(()=>{
-        fetch("https://jsonplaceholder.typicode.com/users")
-        .then(response=>response.json())
-        .then(apiData=>setUsers(apiData))
-        .catch(err=>seterror(err.message))
+      axios.get('/data')
+      .then(response=>{
+        //console.log(response.data.posts)
+        setUsers(response.data.students)
+      })
+      .catch(error=>console.log(error))
     }, [])
   return (
     <>
@@ -78,7 +81,7 @@ export default function CardTableTA({ color }) {
                       : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
                   }
                 >
-                  Submission Time
+                  PENDING
                 </th>
                 <th
                   className={
@@ -88,7 +91,7 @@ export default function CardTableTA({ color }) {
                       : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
                   }
                 >
-                Score
+                SUBMITTED
                 </th>
                 <th
                   className={
@@ -102,7 +105,7 @@ export default function CardTableTA({ color }) {
             </thead>
             <tbody>
               {
-              users.map((userObj)=><tr key = {userObj.id}>
+              users.map((userObj)=><tr key = {userObj._id}>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xl whitespace-nowrap p-4 text-left flex items-center">
                   
                   <span
@@ -115,16 +118,16 @@ export default function CardTableTA({ color }) {
                   </span>
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xl whitespace-nowrap p-4">
-                  {userObj.id}
+                  {userObj._id}
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xl whitespace-nowrap p-4">
-                  <i className="fas fa-circle text-emerald-500 mr-2"></i> active
+                  <i className="fas fa-circle text-emerald-500 mr-2"></i> {userObj.status}
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xl whitespace-nowrap p-4">
-                  {userObj.address.street}
+                  {userObj.pending}
                 </td>
                 <td className="border-t-0 px-6 text-center border-l-0 border-r-0 text-xl whitespace-nowrap p-4">
-                  {userObj.address.zipcode}
+                  {userObj.submitted}
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
                   <TableDropdown />

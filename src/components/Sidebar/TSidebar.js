@@ -124,7 +124,7 @@ export default function TSidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Teacher Assistant
+                  ADD ASSIGNMENT
                 </Link>
               </li>
 
@@ -146,7 +146,7 @@ export default function TSidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Tables
+                  LEADERBOARD
                 </Link>
               </li>
 
