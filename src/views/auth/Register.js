@@ -2,13 +2,13 @@ import React from "react";
 import {useForm} from 'react-hook-form'
 import {Form, Button,Card} from 'react-bootstrap'
 import axios from 'axios'
-//import {useNavigate} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
 
 export default function Register() {
 
   const {register,handleSubmit,formState:{errors}}=useForm();
-  //const navigate=useNavigate()
+  const navigate=useHistory()
 
   //submit form
   const onFormSubmit=(userObj)=>{
@@ -19,7 +19,7 @@ export default function Register() {
       //console.log(response)
       alert(res.data.result)
         if(res.data.result==="User Registered successfully"){
-          //navigate('/login')
+          navigate.push('/auth/login')
           console.log("Success")
         }
     })

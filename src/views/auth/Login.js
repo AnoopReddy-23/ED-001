@@ -17,6 +17,8 @@ export default function Login() {
     .then(res=>{
       //console.log(res.data)
       alert(res.data.result)
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("userInfo", res.data.userInfo.userType);
       if(res.data.result==="Login successful"){
         if(res.data.userInfo.userType==="student"){
           navigate.push('/admin/TAdashboard')
@@ -25,7 +27,7 @@ export default function Login() {
           navigate.push('/admin/Tdashboard')
         }
         if(res.data.userInfo.userType==="admin"){
-          navigate.push('admin/Adashboard')
+          navigate.push('/admin/Adashboard')
         }
         //console.log("Success",res.data.userInfo)
       }
