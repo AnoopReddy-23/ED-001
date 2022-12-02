@@ -22,19 +22,19 @@ export default function CardBarChart() {
         ],
         datasets: [
           {
-            label: new Date().getFullYear(),
+            label: new Date().getFullYear()-1,
             backgroundColor: "#ed64a6",
             borderColor: "#ed64a6",
-            data: [30, 78, 56, 34, 100, 45, 13, 52, 32, 25, 78, 43],
+            data: [27, 44, 56, 34, 49, 45, 54, 52, 32, 25, 78, 43],
             fill: false,
             barThickness: 8,
           },
           {
-            label: new Date().getFullYear() - 1,
+            label: new Date().getFullYear(),
             fill: false,
             backgroundColor: "#4c51bf",
             borderColor: "#4c51bf",
-            data: [27, 68, 86, 74, 10, 4, 87, 78, 56, 34, 100, 45],
+            data: [33, 68, 86, 74, 55, 49, 87, 78, 56, 34, 100, 45],
             barThickness: 8,
           },
         ],
