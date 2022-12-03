@@ -14,7 +14,9 @@ const userSchema = new mongoose.Schema({
     userType:{
         type: String
     },
-    
+    year:{
+        type: String
+    },
 })
 
 mongoose.model("UserModel",userSchema)

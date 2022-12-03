@@ -22,12 +22,14 @@ mongoose.connection.on('error',(error)=>{
 require('./models/user_model')
 require('./models/student_model')
 require('./models/teacher_model')
+require('./models/assignment_model')
 
 app.use(exp.json())
 app.use(exp.urlencoded({extended: true}));
 app.use(require('./routes/authentication'))
 app.use(require('./routes/studentRoute'))
 app.use(require('./routes/teacherRoute'))
+app.use(require('./routes/assignmentRoute'))
 
 
 //dealing with page refersh

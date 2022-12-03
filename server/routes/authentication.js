@@ -19,8 +19,8 @@ router.post('/login', (req, res) => {
                         // res.status(200).json({ result: "User Logged In successfully" });
                         // create and send a token
                         const jwtToken = jwt.sign({ _id: dbUser._id }, JWT_SECRET);
-                        const { _id, username, email,userType } = dbUser;
-                        res.json({ result:"Login successful", token: jwtToken, userInfo: { _id, username, email,userType  } });
+                        const { _id, username, email,userType,year } = dbUser;
+                        res.json({ result:"Login successful", token: jwtToken, userInfo: { _id, username, email,userType, year  } });
                     } else {
                         return res.json({ result: "Invalid credentials!" });
                     }
@@ -33,7 +33,7 @@ router.post('/login', (req, res) => {
 
 router.post('/register',(req,res)=>{
     //console.log(req.body)
-    const { username, password, email, userType } = req.body;
+    const { username, password, email, userType,year } = req.body;
     //console.log( username, password, email, city, profileImg)
     UserModel.findOne({ username: username })
         .then((dbUser) => {
@@ -42,7 +42,7 @@ router.post('/register',(req,res)=>{
             }
             bcrypt.hash(password, 16)
                 .then((hashedPassword) => {
-                    const user = new UserModel({ username, password: hashedPassword, email, userType});
+                    const user = new UserModel({ username, password: hashedPassword, email, userType, year});
                     user.save()
                         .then((u) => {
                             //console.log(u)

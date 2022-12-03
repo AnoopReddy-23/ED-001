@@ -19,6 +19,7 @@ export default function Login() {
       alert(res.data.result)
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userInfo", res.data.userInfo.userType);
+      localStorage.setItem("year", res.data.userInfo.year);
       if(res.data.result==="Login successful"){
         if(res.data.userInfo.userType==="student"){
           navigate.push('/admin/TAdashboard')

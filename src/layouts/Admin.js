@@ -23,6 +23,8 @@ import TTables from "views/TDASHBOARD/TTables";
 import TADashboard from "views/TADASHBOARD/TADashboard";
 import TASettings from "views/TADASHBOARD/TASettings";
 import TATables from "views/TADASHBOARD/TATables";
+import assignments from "components/Cards/assignments";
+
 export default function Admin() {
   return (
     <>
