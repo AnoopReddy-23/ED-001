@@ -18,4 +18,14 @@ router.post('/add-assignment',(req,res)=>{
                 });
 })
 
+router.get('/get-assignments',(req,res)=>{
+    AssignmentModel.find()
+        .then((dbStudents)=>{
+            res.json({assignments: dbStudents})
+        })
+        .catch((error)=>{
+            res.json({error})
+        })
+})
+
 module.exports=router;

@@ -1,8 +1,28 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+import {Button,Card} from "react-bootstrap";
+import { useState, useEffect } from "react";
+import axios from 'axios'
 // components
 
 export default function TACardSettings() {
+
+  let [users, setUsers] = useState([])
+    const [error, seterror] = useState('')
+    let newArray;
+    let [assignments, setAssignments] = useState([])
+
+    useEffect(()=>{
+      let year=localStorage.getItem("token")
+      axios.get('/get-assignments')
+      .then(response=>{
+        console.log(response.data.assignments)
+        setUsers(response.data.assignments)
+        newArray= users.filter((item=> item.year===year))
+        setAssignments(newArray)
+        console.log(assignments)
+      })
+      .catch(error=>console.log(error))
+    }, [])
 
   return (
     <>
@@ -14,7 +34,23 @@ export default function TACardSettings() {
           </div>
         </div>
         <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-          assignments
+          
+        {
+          users.map((item)=>
+            <div className='mx-auto col-12 col-md-6 col-lg-4 container-fluid'>
+              <Card style={{ width: "20rem" }} className='mx-auto mt-3 py-3 card text-center'>
+                <Card.Header>{item.title}</Card.Header>
+                <Card.Body>
+                  <Card.Title>{item.type}</Card.Title>
+                  <Card.Text>
+                    {item.description}
+                  </Card.Text>
+                  <Button variant="primary">Submit</Button>
+                </Card.Body>
+              </Card>
+            </div>
+        )}
+
         </div>
       </div>
     </>
