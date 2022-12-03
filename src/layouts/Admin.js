@@ -47,6 +47,8 @@ export default function Admin() {
             <Route path="/admin/Atables" exact component={ATables} />
             <Route path="/admin/Ttables" exact component={TTables} />
             <Route path="/admin/TAtables" exact component={TATables} />
+            <Route path="/admin/assignments" exact component={assignments} />
+
             <Redirect from="/admin" to="/admin/dashboard" />
           </Switch>
           <FooterAdmin fixed/>

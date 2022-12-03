@@ -1,11 +1,12 @@
 import React from "react";
 import {Button,Card} from "react-bootstrap";
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import axios from 'axios'
 // components
 
 export default function TACardSettings() {
-
+  const navigate=useHistory()
   let [users, setUsers] = useState([])
     const [error, seterror] = useState('')
     let newArray;
@@ -17,9 +18,9 @@ export default function TACardSettings() {
       .then(response=>{
         console.log(response.data.assignments)
         console.log(year)
-        setUsers(response.data.assignments)
-        newArray= users.filter((item=> item.year===year))
-        setAssignments(newArray)
+        //setUsers(response.data.assignments)
+        newArray= response.data.assignments.filter((item=> item.year===year))
+        setUsers(newArray)
         console.log(assignments)
       })
       .catch(error=>console.log(error))
@@ -46,7 +47,7 @@ export default function TACardSettings() {
                   <Card.Text>
                     {item.description}
                   </Card.Text>
-                  <Button variant="primary">Submit</Button>
+                  <Button onClick={()=>navigate.push('/admin/assignments')} variant="primary">Submit</Button>
                 </Card.Body>
               </Card>
             </div>
