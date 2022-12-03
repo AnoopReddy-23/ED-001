@@ -7,6 +7,9 @@ const studentSchema = new mongoose.Schema({
     status:{
         type: String
     },
+    year:{
+        type: String,
+    },
     pending:{
         type: String
     },

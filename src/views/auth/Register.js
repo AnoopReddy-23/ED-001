@@ -13,13 +13,31 @@ export default function Register() {
   
   //submit form
   const onFormSubmit=(userObj)=>{
+    let user={...userObj}
     console.log(userObj)
+    userObj.userType="student"
     //HTTP POST request
     axios.post('/register', userObj)
     .then(res=>{
       //console.log(response)
       alert(res.data.result)
         if(res.data.result==="User Registered successfully"){
+          user.name=user.username;
+          delete user.username;
+          user.pending=0;
+          user.submitted=0;
+          user.status="active"
+          console.log(user)
+          axios.post('/add-student',user)
+          .then(res=>{
+            //console.log(res.data)
+            //alert(res.data.result)
+            if(res.data.result==="Student Registered successfully"){
+              console.log("success")
+            }
+        })
+        .catch(error=>console.log(error))     
+
           navigate.push('/auth/login')
           console.log("Success")
         }
@@ -94,22 +112,24 @@ export default function Register() {
                     {/* validation error message for city */}
                     {errors.email && <p className='text-danger'>*Email is required</p>}
                   </Form.Group>
-                  {/* usertype */}
+
+                  {/* year */}
                   <Form.Group className="mb-3">
-                    {/* Student */}
-                    <Form.Label>Select type of User</Form.Label> <br />
-                      <Form.Check inline type="radio" id="student">
-                        <Form.Check.Input type="radio" value="student" {...register("userType", { required: true })} />
-                      <Form.Check.Label>Student</Form.Check.Label>
+                    {/* Normal user */}
+                    <Form.Label>Select year</Form.Label> <br />
+                      <Form.Check inline type="radio" id="1">
+                        <Form.Check.Input type="radio" value="1" {...register("year", { required: true })} />
+                      <Form.Check.Label>1</Form.Check.Label>
                     </Form.Check>
-                    {/* Teacher */}
-                    <Form.Check inline type="radio" id="teacher">
-                      <Form.Check.Input type="radio" value="teacher" {...register("userType", { required: true })}/>
-                      <Form.Check.Label>Teacher</Form.Check.Label>
+                    {/* Admin */}
+                    <Form.Check inline type="radio" id="2">
+                      <Form.Check.Input type="radio" value="2" {...register("year", { required: true })}/>
+                      <Form.Check.Label>2</Form.Check.Label>
                     </Form.Check>
                     {/* validation error message for userType */}
-                    {errors.userType && <p className='text-danger'>*UserType is required</p>}
+                    {errors.year && <p className='text-danger'>*Year is required</p>}
                   </Form.Group>
+          
                   <div>
                     <label className="inline-flex items-center cursor-pointer">
                       <input
