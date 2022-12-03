@@ -8,8 +8,11 @@ export default class PiePlot extends Component {
           data={[
             {
               values: [31, 10, 4, 45],
-              labels: ["videos", "audio", "quiz", "presentation"],
+              labels: ["quiz", "audio", "videos", "presentation"],
               type: "pie",
+              textinfo:"label+percent",
+              insidetextorientation: "radial",
+              sort:false,
             },
           ]}
           layout={{ width: 500, height: 500, title: "Pending %" }}
