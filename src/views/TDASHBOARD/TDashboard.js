@@ -8,10 +8,11 @@ import CardPageVisits from "components/Cards/CardPageVisits.js";
 import CardSocialTraffic from "components/Cards/CardSocialTraffic.js";
 import PiePlot from "components/Charts/PiePlot";
 import PP2 from "components/Charts/PP2";
-
+import HeaderStats from "components/Headers/HeaderStats.js";
 export default function TDashboard() {
   return (
     <>
+      <HeaderStats/>
       <TSidebar />
       <div className="flex flex-wrap d-block mx-auto">
         <div className="d-flex">
