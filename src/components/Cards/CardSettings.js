@@ -74,6 +74,24 @@ export default function CardSettings() {
                     <input type="file" />
                   </div>
                 </div>
+                <div className="w-full lg:w-6/12 px-4">
+                  <div className="relative w-full mb-3">
+                    <label
+                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      htmlFor="grid-password"
+                    >
+                      Select Student Year
+                    </label>
+
+                    <select>
+                      <option value="Year-1">1st Year</option>
+                      <option value="Year-2">2nd Year</option>
+                      <option value="Year-3">3rd Year</option>
+                      <option value="Year-3">4th Year</option>
+                      <option value="Year-All">ALL</option>
+                    </select>
+                  </div>
+                </div>
               </div>
               <hr className="mt-6 border-b-1 border-blueGray-300" />
 

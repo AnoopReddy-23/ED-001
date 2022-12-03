@@ -1,7 +1,7 @@
 /*eslint-disable*/
 import React from "react";
 import { Link } from "react-router-dom";
-import { BrowserRouter, Route, Switch,  } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import NotificationDropdown from "components/Dropdowns/NotificationDropdown.js";
 import UserDropdown from "components/Dropdowns/UserDropdown.js";
@@ -26,7 +26,7 @@ export default function TASidebar() {
             className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
             to="/"
           >
-            Student Dashboard
+            Eval Systems
           </Link>
           {/* User */}
           <ul className="md:hidden items-center flex flex-wrap list-none">
@@ -51,9 +51,7 @@ export default function TASidebar() {
                   <Link
                     className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
                     to="/"
-                  >
-                    
-                  </Link>
+                  ></Link>
                 </div>
                 <div className="w-6/12 flex justify-end">
                   <button
@@ -77,15 +75,16 @@ export default function TASidebar() {
               </div>
             </form>
 
-            {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
             {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Student
+            <h6 className="md:min-w-full text-blueGray-500 mt-3 ms-2 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+              STUDENT DASHBOARD
             </h6>
+
+            <hr className="md:min-w-full" />
+
             {/* Navigation */}
 
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+            <ul className="md:flex-col md:min-w-full ms-2 flex flex-col list-none">
               <li className="items-center">
                 <Link
                   className={
@@ -162,39 +161,28 @@ export default function TASidebar() {
                   }
                   to="/admin/TAtables"
                 >
-                   <BrowserRouter>
-    <Switch>
-      {/* add routes with layouts */}
-      <Route path="/Addteacher" component={Addteacher} />
-     
-      
-
-    </Switch>
-  </BrowserRouter>
-              
+                  <BrowserRouter>
+                    <Switch>
+                      {/* add routes with layouts */}
+                      <Route path="/Addteacher" component={Addteacher} />
+                    </Switch>
+                  </BrowserRouter>
                 </Link>
               </li>
-
-             
             </ul>
 
             {/* Divider
             <hr className="my-4 md:min-w-full" />
             {/* Heading */}
-            
+
             {/* Navigation */}
 
-           
+            {/* Divider */}
 
             {/* Divider */}
-           
-           
 
-            {/* Divider */}
-            
             {/* Navigation */}
-           
-          </div> 
+          </div>
         </div>
       </nav>
     </>

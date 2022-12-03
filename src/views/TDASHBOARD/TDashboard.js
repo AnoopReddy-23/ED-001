@@ -13,16 +13,15 @@ export default function TDashboard() {
   return (
     <>
       <TSidebar />
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap d-block mx-auto">
         <div className="d-flex">
-          <div className="w-full xl:w-12/12 mb-12 me-2 ">
+          <div className="w-full ms-4 xl:w-12/12 mb-12 ">
             <PiePlot />
           </div>
-          <div className="w-full xl:w-12/12 mb-12 me-2 ">
+          <div className="w-full xl:w-12/12 mb-12">
             <PP2 />
           </div>
         </div>
-
         <div className="w-full xl:w-12/12 ">
           <CardBarChart />
         </div>
