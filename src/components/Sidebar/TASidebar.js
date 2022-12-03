@@ -126,7 +126,7 @@ export default function TASidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Add Submission
+                  Add Submissions
                 </Link>
               </li>
 
