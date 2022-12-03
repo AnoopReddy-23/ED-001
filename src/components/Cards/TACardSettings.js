@@ -12,10 +12,11 @@ export default function TACardSettings() {
     let [assignments, setAssignments] = useState([])
 
     useEffect(()=>{
-      let year=localStorage.getItem("token")
+      let year=localStorage.getItem("year")
       axios.get('/get-assignments')
       .then(response=>{
         console.log(response.data.assignments)
+        console.log(year)
         setUsers(response.data.assignments)
         newArray= users.filter((item=> item.year===year))
         setAssignments(newArray)
