@@ -109,13 +109,9 @@ export default function CardSettings() {
               {/* SELECT Student year */}
               <Form.Group className="mb-3">
                 <Form.Label>SELECT STUDENT YEAR</Form.Label> <br />
-                <Form.Check inline type="radio" id="1">
-                  <Form.Check.Input
-                    type="radio"
-                    value="1"
-                    {...register("year", { required: true })}
-                  />
-                  <Form.Check.Label>1sy year</Form.Check.Label>
+                  <Form.Check inline type="radio" id="1">
+                    <Form.Check.Input type="radio" value="1" {...register("year", { required: true })} />
+                  <Form.Check.Label>1st year</Form.Check.Label>
                 </Form.Check>
                 <Form.Check inline type="radio" id="2">
                   <Form.Check.Input
