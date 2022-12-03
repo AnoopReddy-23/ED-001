@@ -10,6 +10,7 @@ export default function Register() {
   const {register,handleSubmit,formState:{errors}}=useForm();
   const navigate=useHistory()
 
+  
   //submit form
   const onFormSubmit=(userObj)=>{
     console.log(userObj)

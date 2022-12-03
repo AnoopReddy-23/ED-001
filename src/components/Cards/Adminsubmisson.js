@@ -20,10 +20,27 @@ export default function Adminsubmission() {
       //console.log(res.data)
       alert(res.data.result)
       if(res.data.result==="Teacher Registered successfully"){
+        //HTTP POST request
+        userCredObj.username=userCredObj.name
+        delete userCredObj.name
+        userCredObj.userType="teacher"
+        axios.post('/register', userCredObj)
+        .then(res=>{
+          //console.log(response)
+          //alert(res.data.result)
+            if(res.data.result==="User Registered successfully"){
+              //navigate.push('/auth/login')
+              console.log("Success")
+            }
+        })
+        .catch(error=>{
+          console.log(error)
+          alert("Something went wrong!! Please try again after sometime..")
+        })
         navigate.push('/admin/Atables')
       }
     })
-    .catch(error=>console.log(error))  
+    .catch(error=>console.log(error))     
   }
 
   return (
@@ -51,12 +68,20 @@ export default function Adminsubmission() {
                 {errors.username && <p className='text-danger'>*Name is required</p>}
               </Form.Group>
 
+              {/* email */}
+              <Form.Group className="mb-3" >
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email"  autoComplete="current-email" placeholder="Enter email" {...register("email",{required:true})} />
+                {/* validation error message for password */}
+                {errors.email && <p className='text-danger'>*Email is required</p>}
+              </Form.Group>
+
               {/* password */}
               <Form.Group className="mb-3" >
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="email"  autoComplete="current-email" placeholder="Enter email" {...register("email",{required:true})} />
+                <Form.Control type="password"  autoComplete="current-password" placeholder="Enter password" {...register("password",{required:true})} />
                 {/* validation error message for password */}
-                {errors.password && <p className='text-danger'>*Email is required</p>}
+                {errors.password && <p className='text-danger'>*Password is required</p>}
               </Form.Group>
               
               {/* submit button */}
