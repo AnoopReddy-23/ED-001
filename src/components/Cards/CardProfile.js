@@ -1,12 +1,10 @@
 import React from "react";
 
-
 // components
 
 export default function CardProfile() {
   return (
     <>
-
       <main className="profile-page">
         <section className="relative block h-500-px">
           <div
@@ -55,7 +53,7 @@ export default function CardProfile() {
                       />
                     </div>
                   </div>
-                
+
                   <div className="w-full lg:w-4/12 px-4 lg:order-1">
                     <div className="flex justify-center py-4 lg:pt-4 pt-8">
                       <div className="mr-4 p-3 text-center">
@@ -79,7 +77,7 @@ export default function CardProfile() {
                 </div>
                 <div className="text-center mt-12">
                   <h3 className="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-                      JJ John James
+                    JJ John James
                   </h3>
                   <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                     <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>{" "}
@@ -94,7 +92,21 @@ export default function CardProfile() {
                   <div className="flex flex-wrap justify-center">
                     <div className="w-full lg:w-9/12 px-4">
                       <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet officia nostrum veniam nulla fugiat maxime atque velit porro adipisci quam! In eos fuga eaque, dolore adipisci maxime sit. Minima, non perferendis. Incidunt expedita, veritatis praesentium ab dolor officia inventore numquam asperiores. Aspernatur ipsa repudiandae quo quam asperiores, minima rem possimus.
+                        JJ John James is finishing her first year at DePaul
+                        University where she is interested in business. Although
+                        she has yet to declare a major, she’s considering
+                        finance or marketing. After watching her parents run a
+                        restaurant for years, she knew at a very young age that
+                        she also wanted to go into business. In high school,
+                        Alison waited tables at the family restaurant during the
+                        summer and was fascinated by the many working parts it
+                        takes to operate a successful business. From this
+                        experience, she learned the value of hard work,
+                        efficiency, and communication. In the future, she hopes
+                        to continue her parents’ legacy and run her own
+                        five-star restaurant in downtown Chicago. Alison spends
+                        her spare time singing in her church choir and cooking
+                        for friends and family.
                       </p>
                     </div>
                   </div>
