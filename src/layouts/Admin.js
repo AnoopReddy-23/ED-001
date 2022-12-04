@@ -23,15 +23,17 @@ import TTables from "views/TDASHBOARD/TTables";
 import TADashboard from "views/TADASHBOARD/TADashboard";
 import TASettings from "views/TADASHBOARD/TASettings";
 import TATables from "views/TADASHBOARD/TATables";
+import assignments from "components/Cards/assignments";
+
 export default function Admin() {
   return (
     <>
       
-      <div className="relative md:ml-64 bg-blueGray-100">
+      <div className="relative md:ml-64 bg-blueGray-100 mt-5 pt-5 my-auto">
         <AdminNavbar />
         {/* Header */}
-        <HeaderStats />
-        <div className="px-4 md:px-10 mx-auto w-full -m-24">
+        {/* <HeaderStats /> */}
+        <div className="px-4 md:px-10 mx-auto w-full m-30 mt-5">
           <Switch>
             <Route path="/admin/dashboard" exact component={Dashboard} />
             <Route path="/admin/Adashboard" exact component={ADashboard} />
@@ -45,9 +47,11 @@ export default function Admin() {
             <Route path="/admin/Atables" exact component={ATables} />
             <Route path="/admin/Ttables" exact component={TTables} />
             <Route path="/admin/TAtables" exact component={TATables} />
+            <Route path="/admin/assignments" exact component={assignments} />
+
             <Redirect from="/admin" to="/admin/dashboard" />
           </Switch>
-          <FooterAdmin />
+          <FooterAdmin fixed/>
         </div>
       </div>
     </>

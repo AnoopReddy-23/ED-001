@@ -75,15 +75,15 @@ export default function TSidebar() {
               </div>
             </form>
 
-            {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
             {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Eval Teacher Panel
+            <h6 className="md:min-w-full mt-3 ms-2 text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+              TEACHER DASHBOARD
             </h6>
+            {/* Divider */}
+            <hr className=" md:min-w-full" />
             {/* Navigation */}
 
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+            <ul className="md:flex-col md:min-w-full ms-2 flex flex-col list-none">
               <li className="items-center">
                 <Link
                   className={
@@ -124,7 +124,7 @@ export default function TSidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Teacher Assistant
+                  ADD ASSIGNMENT
                 </Link>
               </li>
 
@@ -146,13 +146,11 @@ export default function TSidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Tables
+                  LEADERBOARD
                 </Link>
               </li>
 
-              <li className="items-center">
-                
-              </li>
+              <li className="items-center"></li>
             </ul>
           </div>
         </div>

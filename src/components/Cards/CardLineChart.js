@@ -17,18 +17,18 @@ export default function CardLineChart() {
         ],
         datasets: [
           {
-            label: new Date().getFullYear(),
+            label: new Date().getFullYear() - 1,
             backgroundColor: "#4c51bf",
             borderColor: "#4c51bf",
-            data: [250, 255, 260, 270, 280, 290, 300],
+            data: [12, 25, 30, 32, 38, 41, 43],
             fill: false,
           },
           {
-            label: new Date().getFullYear() - 1,
+            label: new Date().getFullYear(),
             fill: false,
             backgroundColor: "#fff",
             borderColor: "#fff",
-            data: [310, 320, 350, 390, 400, 410, 430],
+            data: [45, 48, 55, 68, 73, 82, 96],
           },
         ],
       },
@@ -113,7 +113,7 @@ export default function CardLineChart() {
           <div className="flex flex-wrap items-center">
             <div className="relative w-full max-w-full flex-grow flex-1">
               <h6 className="uppercase text-blueGray-100 mb-1 text-xs font-semibold">
-                TEACHERS IMPACTED
+                Number of Users
               </h6>
               <h2 className="text-white text-xl font-semibold"></h2>
             </div>

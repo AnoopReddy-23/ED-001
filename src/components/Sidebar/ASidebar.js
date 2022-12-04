@@ -75,15 +75,15 @@ export default function ASidebar() {
               </div>
             </form>
 
-            {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
             {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Eval Admin Panel
+            <h6 className="md:min-w-full text-blueGray-500 mt-3 ms-2 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+              EVAL ADMIN PANEL
             </h6>
+            {/* Divider */}
+            <hr className="md:min-w-full" />
             {/* Navigation */}
 
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+            <ul className="md:flex-col md:min-w-full ms-2 flex flex-col list-none">
               <li className="items-center">
                 <Link
                   className={
@@ -124,7 +124,7 @@ export default function ASidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  ADD NEW TEACHER ASSISTANT
+                  ADD NEW TEACHER
                 </Link>
               </li>
 
@@ -146,13 +146,11 @@ export default function ASidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  TEACHER ASSISTANT'S DATA
+                  TEACHER'S DATA
                 </Link>
               </li>
 
-              <li className="items-center">
-                
-              </li>
+              <li className="items-center"></li>
             </ul>
           </div>
         </div>

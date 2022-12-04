@@ -10,14 +10,14 @@ function Addteacher() {
         <Container>
       <Navbar expand="lg" variant="light" bg="light">
         <Container>
-        <Button variant="primary">Primary</Button>
+        {/* <Button variant="primary">Primary</Button> */}
 
         </Container>
       </Navbar>
     </Container>
 
 
-    <div className='mx-auto ,p-auto'>
+    {/* <div className='mx-auto ,p-auto'>
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
@@ -29,7 +29,7 @@ function Addteacher() {
         <Button variant="primary">Go somewhere</Button>
       </Card.Body>
     </Card>
-    </div>
+    </div> */}
 
 
     </div>

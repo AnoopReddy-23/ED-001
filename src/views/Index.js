@@ -7,14 +7,18 @@ import Carousel from 'react-bootstrap/Carousel';
 import ImageSlider from "components/Slider/ImageSlider";
 import { SliderData } from "components/Slider/SliderData";
 import './Index-marquee.css'
+
 export default function Index() {
+  
+  //console.log(localStorage.getItem("token"))
+
   return (
     <>
       <IndexNavbar fixed />
 
       <div className="container row mx-auto pt-32">
         <div className="col-sm-8">
-          <div className="pt-32 sm:pt-0 mt-4">
+          <div className="pt-32 sm:pt-0 my-4">
               <h2 className="font-semibold text-4xl text-blueGray-600">
                 EVAL
               </h2>
@@ -26,7 +30,7 @@ export default function Index() {
               
           </div>
         </div>
-        <div className="col-sm-12 mt-4 pt-32 text-center">
+        <div className="col-sm-12 mt-5 pt-32 text-center">
         <ImageSlider slides={SliderData}></ImageSlider>
         </div>
       </div>

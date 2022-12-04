@@ -21,7 +21,7 @@ export default function HeaderStats() {
                   statArrow="up"
                   statPercent="7.28"
                   statPercentColor="text-emerald-500"
-                  statDescripiron="Since last month"
+                  statDescripiron="Since last year"
                   statIconName="far fa-chart-bar"
                   statIconColor="bg-red-500"
                 />

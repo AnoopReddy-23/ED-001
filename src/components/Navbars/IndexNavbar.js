@@ -1,6 +1,8 @@
 /*eslint-disable*/
 import React from "react";
+import {Button} from 'react-bootstrap'
 import { Link } from "react-router-dom";
+import {useHistory} from 'react-router-dom'
 import './Indexnavsty.css'
 // components
 
@@ -8,6 +10,22 @@ import IndexDropdown from "components/Dropdowns/IndexDropdown.js";
 
 export default function Navbar(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
+  const navigate=useHistory()
+
+  function dash(){
+    const user=localStorage.getItem("userInfo")
+    //console.log(user)
+    if(user==="student"){
+      navigate.push('/admin/TAdashboard')
+    }
+    if(user==="teacher"){
+      navigate.push('/admin/Tdashboard')
+    }
+    if(user==="admin"){
+      navigate.push('/admin/Adashboard')
+    }
+  }
+
   return (
     <>
       <nav className="top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-white shadow">
@@ -40,17 +58,31 @@ export default function Navbar(props) {
             </ul>
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="flex items-center">
-                <IndexDropdown />
+                {/* <IndexDropdown /> */}
               </li>
               
 
               <li className="flex items-center">
-                <button
-                  className="bg-lightBlue-500 text-white active:bg-lightBlue-600 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none m-3 ease-linear transition-all duration-150"
-                  type="button"
-                >
-                  <i className="fas"></i> Login
-                </button>
+                
+                  {
+                    !localStorage.getItem("token")
+                    ?
+                      <button
+                        className="bg-lightBlue-500 text-white active:bg-lightBlue-600 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none m-3 ease-linear transition-all duration-150"
+                        type="button"
+                      >
+                        <Link
+                          to="/auth/login"
+                          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+                        >
+                        Login
+                        </Link>
+                      </button>
+                    :
+                      <Button
+                        variant="primary"
+                       onClick={dash}>Dashboard</Button>
+                  }
               </li>
             </ul>
           </div>
